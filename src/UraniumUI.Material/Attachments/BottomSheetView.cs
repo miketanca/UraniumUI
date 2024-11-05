@@ -53,7 +53,7 @@ public partial class BottomSheetView : Border, IPageAttachment
         var tapGestureRecognizer = new TapGestureRecognizer();
         tapGestureRecognizer.Tapped += (s, e) => IsPresented = !IsPresented;
         Header.GestureRecognizers.Add(tapGestureRecognizer);
-        Header.BackgroundColor = this.BackgroundColor;
+        Header.BackgroundColor ??= this.BackgroundColor;
 
         closeGestureRecognizer.Tapped += (s, e) => IsPresented = false;
     }
