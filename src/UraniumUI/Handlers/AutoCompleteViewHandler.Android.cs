@@ -8,6 +8,7 @@ using AndroidX.AppCompat.Widget;
 using Microsoft.Maui.Controls.Compatibility.Platform.Android;
 using Microsoft.Maui.Controls.Platform;
 using Microsoft.Maui.Handlers;
+using Microsoft.Maui.Platform;
 using System.Collections;
 using UraniumUI.Controls;
 
@@ -31,7 +32,7 @@ public partial class AutoCompleteViewHandler : ViewHandler<IAutoCompleteView, Ap
 
         if (VirtualView != null)
         {
-            autoComplete.SetTextColor(VirtualView.TextColor.ToAndroid());
+            autoComplete.SetTextColor(VirtualView.TextColor.ToPlatform());
         }
 
         return autoComplete;
