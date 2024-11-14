@@ -31,5 +31,19 @@
 
         <uranium:SelectableLabel Margin="15" Text="Hello, World! This text should be selectable!" />
 
+        <material:PickerField Title="Monkeys">
+            <material:PickerField.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Baboon</x:String>
+                    <x:String>Capuchin Monkey</x:String>
+                    <x:String>Blue Monkey</x:String>
+                    <x:String>Squirrel Monkey</x:String>
+                    <x:String>Golden Lion Tamarin</x:String>
+                    <x:String>Howler Monkey</x:String>
+                    <x:String>Japanese Macaque</x:String>
+                </x:Array>
+            </material:PickerField.ItemsSource>
+        </material:PickerField>
+
     </VerticalStackLayout>
 </ContentPage>

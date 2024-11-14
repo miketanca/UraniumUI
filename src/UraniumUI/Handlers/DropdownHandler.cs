@@ -22,7 +22,7 @@ public partial class DropdownHandler
     }
 }
 
-#if (NET8_0) && !ANDROID && !IOS && !MACCATALYST && !WINDOWS
+#if (NET8_0 || NET9_0) && !ANDROID && !IOS && !MACCATALYST && !WINDOWS
 public partial class DropdownHandler : ViewHandler<Dropdown, object>
 {
 	public DropdownHandler(IPropertyMapper mapper, CommandMapper commandMapper = null) : base(DropdownPropertyMapper, commandMapper)

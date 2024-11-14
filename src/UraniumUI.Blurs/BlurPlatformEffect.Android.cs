@@ -67,7 +67,7 @@ public class BlurPlatformEffect : PlatformEffect
             if (_mainDrawable == null)
             {
                 _mainDrawable = new GradientDrawable();
-                _mainDrawable.SetColor(Colors.Transparent.ToAndroid());
+                _mainDrawable.SetColor(Colors.Transparent.ToPlatform());
                 Control.Background = _mainDrawable;
             }
 
@@ -116,12 +116,12 @@ public class BlurPlatformEffect : PlatformEffect
     {
         if (VirtualEffect?.AccentColor != null && VirtualEffect.AccentColor.IsNotDefault())
         {
-            return VirtualEffect.AccentColor.WithAlpha(VirtualEffect.AccentOpacity).ToAndroid();
+            return VirtualEffect.AccentColor.WithAlpha(VirtualEffect.AccentOpacity).ToPlatform();
         }
 
         return VirtualEffect?.Mode == BlurMode.Dark
-            ? Colors.Black.WithAlpha(VirtualEffect.AccentOpacity).ToAndroid()
-            : Colors.White.WithAlpha(VirtualEffect.AccentOpacity).ToAndroid();
+            ? Colors.Black.WithAlpha(VirtualEffect.AccentOpacity).ToPlatform()
+            : Colors.White.WithAlpha(VirtualEffect.AccentOpacity).ToPlatform();
     }
 
     private void AlignBlurView()
