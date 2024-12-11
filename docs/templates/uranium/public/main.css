@@ -62,7 +62,7 @@ code {
 }
 
 nav#toc {
-  background: rgba(50, 50, 50, 0.15);
+  background: rgba(0, 0, 0, 0.1);
   border-radius: .7rem;
   padding: .75rem;
 }
