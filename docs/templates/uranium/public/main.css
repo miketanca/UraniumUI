@@ -36,6 +36,7 @@
   --bs-link-color-rgb: 82, 214, 129;
   --bs-link-hover-color-rgb: 168, 234, 192;
   --bs-link-hover-color: #52d681;
+  --bs-primary-border-subtle: #52d6807c;
   --bs-code-color: 253, 219, 58;
   --bs-primary-bg-subtle: #d4d4cd;
 }
@@ -46,6 +47,7 @@
   --bs-link-color-rgb: 168, 234, 192;
   --bs-link-hover-color-rgb: 82, 214, 129;
   --bs-link-hover-color: #52d681;
+  --bs-primary-border-subtle: #52d6807c;
   --bs-code-color: 254, 237, 157;
 }
 
@@ -59,8 +61,13 @@ code {
   font-family: sans-serif
 }
 
-/* HEADINGS */
+nav#toc {
+  background: rgba(50, 50, 50, 0.15);
+  border-radius: .7rem;
+  padding: .75rem;
+}
 
+/* HEADINGS */
 h1 {
   font-weight: 600;
   font-size: 32px;
