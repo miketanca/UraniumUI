@@ -371,7 +371,7 @@ public class MopupsDialogService : IDialogService
             Children =
             {
                 GetHeader(title),
-                formView,
+                new ScrollView { Content = formView, MaximumHeightRequest = Page.Height * .8 },
                 GetDivider(),
                 GetFooter( new Dictionary<string, Command>
                 {
