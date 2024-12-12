@@ -291,6 +291,7 @@ public partial class InputField : ContentView
         {
             return;
         }
+
         using (border.Batch())
         using (labelTitle.Batch())
         {
@@ -302,6 +303,7 @@ public partial class InputField : ContentView
 
                 labelTitle.AnchorX = 0;
 
+                labelTitle.CancelAnimations();
                 if (HasValue)
                 {
                     labelTitle.TranslationX = x;
