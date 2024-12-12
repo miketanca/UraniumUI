@@ -11,8 +11,8 @@ namespace UraniumUI.Material.Controls;
 [ContentProperty(nameof(Validations))]
 public class TimePickerField : InputField
 {
-    public TimePickerWrappedView TimePickerView => Content as TimePickerWrappedView;
-    public override View Content { get; set; } = new TimePickerWrappedView
+    public TimePickerView TimePickerView => Content as TimePickerView;
+    public override View Content { get; set; } = new TimePickerView
     {
         VerticalOptions = LayoutOptions.Center,
 #if WINDOWS
@@ -79,6 +79,10 @@ public class TimePickerField : InputField
     {
         if (IsEnabled)
         {
+            // Workaround for the selecting the same time again:
+            TimePickerView.Time += TimeSpan.FromSeconds(1);
+            // End of workaround
+
             Time = null;
         }
     }
