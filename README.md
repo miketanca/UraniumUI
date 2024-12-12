@@ -33,7 +33,7 @@ Or watch the video:
 ## Features ✨
 
 - Startup [Templates](https://enisn-projects.io/docs/en/uranium/latest/Getting-Started#new-projects)
-- The lastest Framework `.NET8`
+- Multiple Target Framework: `.NET8` _(LTS)_ & `.NET 9`
   - Use UraniumUI **v2.5** for `.NET6` _(LTS)_ and `.NET7`.
 - Pre-built layouts and flexible controls.
 - Dark/light mode support.
