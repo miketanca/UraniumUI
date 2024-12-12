@@ -531,12 +531,12 @@ public class CommunityToolkitDialogService : CommunityToolkitDialogServiceBase, 
         {
             { submit, new Command(() =>
             {
-                tcs.SetResult(viewModel);
+                tcs.TrySetResult(viewModel);
                 popup.Close();
             }) },
             { cancel, new Command(() =>
             {
-                tcs.SetResult(null);
+                tcs.TrySetResult(null);
             }) }
         });
 

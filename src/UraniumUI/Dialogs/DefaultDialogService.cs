@@ -424,12 +424,12 @@ public class DefaultDialogService : IDialogService
         var popupPage = new DefaultDialogAnimatedContentPage
         {
             BackgroundColor = GetBackdropColor(),
-            Content = GetFrame(Page.Width, new ScrollView
+            Content = GetFrame(Page.Width, new VerticalStackLayout
             {
                 Children =
                 {
                     GetHeader(title),
-                    new VerticalStackLayout { Content = formView },
+                    new ScrollView { Content = formView, MaximumHeightRequest = Page.Height * .8 },
                     GetDivider(),
                     GetFooter(new Dictionary<string, Command>
                     {
