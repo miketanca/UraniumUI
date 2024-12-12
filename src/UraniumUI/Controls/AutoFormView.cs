@@ -132,40 +132,43 @@ public class AutoFormView : FormView
             return;
         }
 
-        foreach (var property in EditingProperties)
+        using (_itemsLayout.Batch())
         {
-            var createEditor = EditorMapping.FirstOrDefault(x => x.Key.IsAssignableFrom(property.PropertyType.AsNonNullable())).Value;
-            if (createEditor != null)
+            foreach (var property in EditingProperties)
             {
-                var editor = createEditor(property, Options.PropertyNameFactory, Source);
-
-                foreach (var action in Options.PostEditorActions)
+                var createEditor = EditorMapping.FirstOrDefault(x => x.Key.IsAssignableFrom(property.PropertyType.AsNonNullable())).Value;
+                if (createEditor != null)
                 {
-                    action(editor, property);
-                }
+                    var editor = createEditor(property, Options.PropertyNameFactory, Source);
 
-                if (editor is IValidatable validatable && Options.ValidationFactory != null)
+                    foreach (var action in Options.PostEditorActions)
+                    {
+                        action(editor, property);
+                    }
+
+                    if (editor is IValidatable validatable && Options.ValidationFactory != null)
+                    {
+                        validatable.Validations.AddRange(Options.ValidationFactory(property));
+                    }
+
+                    _itemsLayout.Children.Add(editor);
+                }
+                else if (ShowMissingProperties)
                 {
-                    validatable.Validations.AddRange(Options.ValidationFactory(property));
+                    _itemsLayout.Children.Add(new Label
+                    {
+                        Text = $"No editor for {property.Name} ({property.PropertyType})",
+                        FontAttributes = FontAttributes.Italic
+                    });
                 }
-
-                _itemsLayout.Children.Add(editor);
             }
-            else if (ShowMissingProperties)
+
+            if (!_itemsLayout.Children.Contains(_footerLayout))
             {
-                _itemsLayout.Children.Add(new Label
-                {
-                    Text = $"No editor for {property.Name} ({property.PropertyType})",
-                    FontAttributes = FontAttributes.Italic
-                });
+                _itemsLayout.Children.Add(_footerLayout);
+                OnShowSubmitButtonChanged();
+                OnShowResetButtonChanged();
             }
-        }
-
-        if (!_itemsLayout.Children.Contains(_footerLayout))
-        {
-            _itemsLayout.Children.Add(_footerLayout);
-            OnShowSubmitButtonChanged();
-            OnShowResetButtonChanged();
         }
     }
 
