@@ -30,7 +30,13 @@ dotnet add package UraniumUI.Validations.DataAnnotations
     </input:FormView>
     ```
 
+    > [!TIP]
     > If you're not familiar with the `FormView`, you can check the [FormView](https://enisn-projects.io/docs/en/inputkit/latest/components/controls/FormView) documentation first to get more information about it.
+
+    > [!WARNING]
+    > If you're using `v:ValidationBinding` in your project, you need to migrate to this new behavior.
+    > 
+    > See the [Migration Guide](../migration-guides/Migrating-To-2.11.md) for more information.
 
 - Add the `System.ComponentModel.DataAnnotations` attributes to the view model class.
 
