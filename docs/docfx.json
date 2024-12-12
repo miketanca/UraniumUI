@@ -42,7 +42,7 @@
       "_appTitle": "UraniumUI",
       "_appLogoPath": "images/logo.png",
       "_enableSearch": true,
-      "pdf": false
+      "pdf": true
     }
   }
 }
