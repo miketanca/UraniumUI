@@ -37,6 +37,6 @@ public class DefaultDialogAnimatedContentPage : ContentPage
 
         await Task.WhenAll(tasks);
 
-        await Navigation.PopModalAsync();
+        await Navigation.PopModalAsync(animated: false);
     }
 }
