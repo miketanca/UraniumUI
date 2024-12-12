@@ -1,4 +1,5 @@
-﻿using Plainer.Maui.Controls;
+﻿using Microsoft.Maui.Platform;
+using Plainer.Maui.Controls;
 using System.ComponentModel;
 using UraniumUI.Controls;
 using UraniumUI.Pages;
@@ -11,8 +12,8 @@ namespace UraniumUI.Material.Controls;
 [ContentProperty(nameof(Validations))]
 public class DatePickerField : InputField
 {
-    public DatePickerWrappedView DatePickerView => Content as DatePickerWrappedView;
-    public override View Content { get; set; } = new DatePickerWrappedView
+    public DatePickerView DatePickerView => Content as DatePickerView;
+    public override View Content { get; set; } = new DatePickerView
     {
         VerticalOptions = LayoutOptions.Center,
 #if ANDROID
@@ -79,7 +80,19 @@ public class DatePickerField : InputField
     {
         if (IsEnabled)
         {
+            // Workaround for the selecting the same date again:
+#if WINDOWS
+            if (DatePickerView.Handler.PlatformView is Microsoft.UI.Xaml.Controls.CalendarDatePicker dp)
+            {
+                dp.Date = null;
+            }
+#elif ANDROID
+            DatePickerView.Date = DatePickerView.Date.AddMonths(-1);
+#endif
+            // End of workaround
+
             Date = null;
+
 #if MACCATALYST
 			DatePickerView.Unfocus();
 #endif
