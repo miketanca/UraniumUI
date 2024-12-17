@@ -23,11 +23,6 @@
           href: validations/DataAnnotations.md
 - name: Dialogs
   href: dialogs/Index.md
-  items:
-    - name: CommunityToolkit
-      href: dialogs/Index.md#communitytoolkit
-    - name: Mopups
-      href: dialogs/Index.md#mopups
 - name: Icons
   href: theming/Icons.md
   items:
