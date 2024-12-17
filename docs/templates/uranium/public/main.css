@@ -34,6 +34,7 @@
   --bs-body-color: #3F4E4F;
   --bs-body-bg: #f6f4e6;
   --bs-link-color-rgb: 82, 214, 129;
+  --bs-link-color: #67c589;
   --bs-link-hover-color-rgb: 168, 234, 192;
   --bs-link-hover-color: #52d681;
   --bs-primary-border-subtle: #f1f6b1;
@@ -45,6 +46,7 @@
   --bs-body-color: #F6F4E6;
   --bs-body-bg: #2C3639;
   --bs-link-color-rgb: 168, 234, 192;
+  --bs-link-color: #a8eac0;
   --bs-link-hover-color-rgb: 82, 214, 129;
   --bs-link-hover-color: #52d681;
   --bs-primary-border-subtle: #52d6807c;
