@@ -77,7 +77,8 @@ builder.Services.Configure<AutoFormViewOptions>(options =>
 });
 ```
 
-> Note: The following types are already mapped by default: `string`, `int`, `float`, `double`, `DateTime`, `TimeSpan`, `bool`, `Enum`, `Keyboard`.
+> [!NOTE]  
+> The following types are already mapped by default: `string`, `int`, `float`, `double`, `DateTime`, `TimeSpan`, `bool`, `Enum`, `Keyboard`.
 
 
 ### Property Name Mapping
