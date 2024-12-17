@@ -13,6 +13,11 @@
     }
   ],
   "build": {
+    "sitemap": {
+      "baseUrl": "https://uraniumui.gh.enisn-projects.io/",
+      "priority": 0.1,
+      "changefreq": "monthly"
+    },
     "content": [
       {
         "files": [
