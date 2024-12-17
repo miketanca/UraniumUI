@@ -11,21 +11,16 @@ Available packages
 - `UraniumUI.Dialogs.CommunityToolkit`
 - `UraniumUI.Dialogs.Mopups`
 
-## CommunityToolkit
 
-1. Install [UraniumUI.Dialogs.CommunityToolkit](https://www.nuget.org/packages/UraniumUI.Dialogs.CommunityToolkit)
+# [Default](#tab/default)
 
-    ```bash
-    dotnet add package UraniumUI.Dialogs.CommunityToolkit
-    ```
+UraniumUI has a default dialog implementation. You can use it without adding any additional package. It uses built-in MAUI Navigation and pushes modal pages to the navigation stack to show dialogs like popups. 
 
-2. Add required services in `MauiProgram.cs`
+> [!NOTE]
+> It may conflict if your project has custom navigation that uses Modal Pages. In that case, you should use one of the popup implementations like **Mopups** or **Community Toolkit**.
 
-    ```csharp
-    builder.Services.AddCommunityToolkitDialogs();
-    ```
 
-## Mopups
+# [Mopups](#tab/mopups)
 
 1. Install [UraniumUI.Dialogs.Mopups](https://www.nuget.org/packages/UraniumUI.Dialogs.Mopups)
 
@@ -50,10 +45,31 @@ Available packages
     builder.Services.AddMopupsDialogs();
     ```
 
+# [CommunityToolkit](#tab/communitytoolkit)
+1. Install [UraniumUI.Dialogs.CommunityToolkit](https://www.nuget.org/packages/UraniumUI.Dialogs.CommunityToolkit)
+
+    ```bash
+    dotnet add package UraniumUI.Dialogs.CommunityToolkit
+    ```
+
+2. Add required services in `MauiProgram.cs`
+
+    ```csharp
+    builder.Services.AddCommunityToolkitDialogs();
+    ```
+
+---
 
 
 ## Types
-There are 4 types of dialogs in UraniumUI package. They are: `CheckBox Prompt`, `RadioButton Prompt`, `Confirmation` and `Text Prompt`. They are implemented as extension methods and `IDialogService` implementation. You can use them as extension method for any **Page** or you can use then view injecting `IDialogService` to your class.
+There are 4 types of dialogs in UraniumUI package. They are: 
+- `CheckBox Prompt`
+- `RadioButton Prompt`
+- `Confirmation` 
+- `Text Prompt`
+- `Progress`
+ 
+They are implemented as extension methods and `IDialogService` implementation. You can use them as extension method for any **Page** or you can use then view injecting `IDialogService` to your class.
 
 
 **Extension Method**
@@ -91,7 +107,10 @@ public partial class MainPage : ContentPage
 }
 ```
 
+> [!IMPORTANT]
 > Injecting `IDialogService` is highly recommended. It'll make your code more testable and makes dialogs libray easily swappable.
+
+---
 
 ### RadioButton Prompt
 RadioButton prompt can be used to get a single selection input from user. It returns the selected option. It can be used with strings or objects. If you use objects, you can use `DisplayMember` parameter to specify the property of the object to be displayed or your object should override `ToString()` method.
@@ -148,6 +167,8 @@ private async void Button_Clicked(object sender, EventArgs e)
 }
 ```
 
+---
+
 ### CheckBox Prompt
 CheckBox prompt can be used to get a multiple selection input from user. It returns the selected options. It can be used with strings or objects. If you use objects, you can use `DisplayMember` parameter to specify the property of the object to be displayed or your object should override `ToString()` method.
 
@@ -203,6 +224,8 @@ private async void Button_Clicked(object sender, EventArgs e)
 }
 ```
 
+---
+
 ### Text Prompt
 Text prompt can be used to get a text input from user. It returns the entered text. All parameters are same with MAUI default `DisplayPromptAsync` method.
 
@@ -218,6 +241,8 @@ private async void Button_Clicked(object sender, EventArgs e)
     await DisplayAlert("Result:", result, "OK");
 }
 ```
+
+---
 
 ### Progress
 
