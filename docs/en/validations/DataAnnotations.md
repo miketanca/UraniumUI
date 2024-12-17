@@ -9,7 +9,7 @@ dotnet add package UraniumUI.Validations.DataAnnotations
 ```
 
 ## Usage
-`DataAnnotationsBehavior` is a behavior that allows you to bind the validations from the ViewModel to the control. It's used with the `FormView` to validate the controls.
+`DataAnnotationsBehavior` is a behavior that allows you to bind the validations from the ViewModel to the control. It's used with the [FormView](https://enisn-projects.io/docs/en/inputkit/latest/components/controls/FormView) to validate the controls.
 
 - Add xmlns for the `UraniumUI.Validations` namespace.
 
