@@ -65,6 +65,8 @@
           href: themes/material/components/EditorField.md
         - name: AutoCompleteTextField
           href: themes/material/components/AutoCompleteTextField.md
+        - name: DropdownField
+          href: themes/material/components/DropdownField.md
         - name: PickerField
           href: themes/material/components/PickerField.md
         - name: MultiplePickerField
