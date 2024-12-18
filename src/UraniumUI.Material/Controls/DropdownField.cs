@@ -7,6 +7,8 @@ using UraniumUI.Views;
 using Path = Microsoft.Maui.Controls.Shapes.Path;
 
 namespace UraniumUI.Material.Controls;
+
+[ContentProperty(nameof(Validations))]
 public class DropdownField : InputField
 {
     public Dropdown DropdownView => Content as Dropdown;
