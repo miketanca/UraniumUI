@@ -35,6 +35,10 @@ PickerFields support setting an icon on the left side of the control. You can se
 | --- | --- |
 | ![MAUI Material PickerField](../../../../images/pickerfield-icon-light-android.gif) | ![MAUI Material PickerField](../../../../images/pickerfield-icon-dark-ios.gif) |
 
+> [!TIP]
+> You can use any `ImageSource` object as Icon. But `FontImageSource` is recommended as it can change its color when focused.
+> Refer to the [Icons Documentation](../../../theming/Icons.md) for more details on using icons.
+
 ## AllowClear
 PickerFields support clearing the selected item by setting the `AllowClear` property to `true`. Default value is `true`. You can make it `false` to disable clearing.
 
@@ -63,8 +67,7 @@ PickerField supports validation rules since it uses `object` as its **SelectedIt
     ItemsSource="{Binding Items}"
     Icon="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Expand_circle_down}}">
     <validation:RequiredValidation />
-</material:PickerField  
-
+</material:PickerField>
 ```
 
 ![MAUI Material Picker Validation](../../../../images/pickerfield-validation-light-android.gif)
