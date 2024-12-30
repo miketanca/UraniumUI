@@ -94,6 +94,7 @@ This project is licensed under the Apache License License - see the [LICENSE](LI
 | [kmaclagan-pcl](https://www.buymeacoffee.com/enisn) |  <!-- 1☕️ -->
 | [@Geramy](https://github.com/Geramy) |  <!-- 1☕️ -->
 | [Malko_Josue](https://twitter.com/Malko_Josue) |  <!-- 1☕️ -->
+| [Nawa](https://github.com/Nawapoln) | <!-- 1☕ -->
 | [JohnStabler](https://github.com/JohnStabler) | <!-- GitHub Sponsor -->
 | [jfversluis](https://github.com/jfversluis) | <!-- GitHub Sponsor -->
 | [Lucasbk123](https://github.com/Lucasbk123) | <!-- GitHub Sponsor -->
