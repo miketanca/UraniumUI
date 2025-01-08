@@ -74,7 +74,20 @@ public partial class AutoCompleteViewHandler : ViewHandler<IAutoCompleteView, Ap
     {
         if (e.ActionId == Android.Views.InputMethods.ImeAction.Done)
         {
-            VirtualView.Completed();
+           VirtualView.Completed();
+           
+          // Cast sender to TextView
+          if (sender is TextView textView)
+          {
+              // Get the InputMethodManager
+              var inputMethodManager = (InputMethodManager)textView.Context.GetSystemService(Context.InputMethodService);
+
+              // Hide the soft keyboard
+              inputMethodManager?.HideSoftInputFromWindow(textView.WindowToken, 0);
+          }
+
+          // Mark the event as handled
+          e.Handled = true;
         }
     }
 
