@@ -42,6 +42,7 @@ public partial class AutoCompleteViewHandler : ViewHandler<IAutoCompleteView, Ap
     {
         platformView.TextChanged += PlatformView_TextChanged;
         platformView.FocusChange += PlatformView_FocusChange;
+        platformView.EditorAction += PlatformView_EditorAction;
         platformView.ItemClick += PlatformView_ItemClicked;
     }
 
@@ -49,6 +50,7 @@ public partial class AutoCompleteViewHandler : ViewHandler<IAutoCompleteView, Ap
     {
         platformView.TextChanged -= PlatformView_TextChanged;
         platformView.FocusChange -= PlatformView_FocusChange;
+        platformView.EditorAction -= PlatformView_EditorAction;
         platformView.ItemClick -= PlatformView_ItemClicked;
     }
 
@@ -67,7 +69,28 @@ public partial class AutoCompleteViewHandler : ViewHandler<IAutoCompleteView, Ap
             PlatformView.ShowDropDown();
         }
     }
-   
+
+    private void PlatformView_EditorAction(object sender, TextView.EditorActionEventArgs e)
+    {
+        if (e.ActionId == Android.Views.InputMethods.ImeAction.Done)
+        {
+           VirtualView.Completed();
+           
+          // Cast sender to TextView
+          if (sender is TextView textView)
+          {
+              // Get the InputMethodManager
+              var inputMethodManager = (InputMethodManager)textView.Context.GetSystemService(Context.InputMethodService);
+
+              // Hide the soft keyboard
+              inputMethodManager?.HideSoftInputFromWindow(textView.WindowToken, 0);
+          }
+
+          // Mark the event as handled
+          e.Handled = true;
+        }
+    }
+
     private void PlatformView_ItemClicked(object sender, Android.Widget.AdapterView.ItemClickEventArgs e)
     {
         if (VirtualView.SelectedText != PlatformView.Text)
