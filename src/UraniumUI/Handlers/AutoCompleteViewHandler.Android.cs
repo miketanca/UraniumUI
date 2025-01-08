@@ -42,7 +42,6 @@ public partial class AutoCompleteViewHandler : ViewHandler<IAutoCompleteView, Ap
     {
         platformView.TextChanged += PlatformView_TextChanged;
         platformView.FocusChange += PlatformView_FocusChange;
-        platformView.EditorAction += PlatformView_EditorAction;
         platformView.ItemClick += PlatformView_ItemClicked;
     }
 
@@ -50,7 +49,6 @@ public partial class AutoCompleteViewHandler : ViewHandler<IAutoCompleteView, Ap
     {
         platformView.TextChanged -= PlatformView_TextChanged;
         platformView.FocusChange -= PlatformView_FocusChange;
-        platformView.EditorAction -= PlatformView_EditorAction;
         platformView.ItemClick -= PlatformView_ItemClicked;
     }
 
@@ -69,15 +67,7 @@ public partial class AutoCompleteViewHandler : ViewHandler<IAutoCompleteView, Ap
             PlatformView.ShowDropDown();
         }
     }
-
-    private void PlatformView_EditorAction(object sender, TextView.EditorActionEventArgs e)
-    {
-        if (e.ActionId == Android.Views.InputMethods.ImeAction.Done)
-        {
-            VirtualView.Completed();
-        }
-    }
-
+   
     private void PlatformView_ItemClicked(object sender, Android.Widget.AdapterView.ItemClickEventArgs e)
     {
         if (VirtualView.SelectedText != PlatformView.Text)
